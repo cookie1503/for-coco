@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affirmation Station</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #e6f7ff; /* Light blue */
+    }
+
+    .container {
+      background-color: #ffffff; /* White */
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    }
+
+    h1 {
+      font-size: 2.5em; /* Larger font size */
+      margin-bottom: 20px;
+      color: #333333; /* Dark grey */
+    }
+
+    #affirmation {
+      font-size: 1.5em; /* Larger font size */
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #0077cc; /* Blue */
+    }
+
+    #showAffirmation {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0077cc; /* Blue */
+      color: #ffffff; /* White */
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Smooth hover transition */
+    }
+
+    #showAffirmation:hover {
+      background-color: #005fa3; /* Darker blue on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Affirmation Station</h1>
+    <p id="affirmation"></p>
+    <button id="showAffirmation">Show Affirmation</button>
+  </div>
+  <script>
+    const affirmations = [
+      "You are beautiful.",
+      "You define your worth.",
+      "You embrace uniqueness.",
+      "You grow stronger daily.",
+      "You deserve love and happiness.",
+      "You trust your abilities.",
+      "You are surrounded by love.",
+      "You embrace your potential.",
+      "You are enough.",
+      "Your confidence grows with challenges.",
+      "You are worthy of success.",
+      "You are proud of your journey.",
+      "You attract positivity and love.",
+      "Your confidence is unshakable.",
+      "You are capable of achieving your dreams.",
+      "You radiate confidence and grace.",
+      "You are worthy of respect and admiration.",
+      "You approach every challenge with courage.",
+      "You have the power to make a difference.",
+      "You are resilient and strong.",
+      "You see obstacles as opportunities for growth.",
+      "You believe in your ability to succeed.",
+      "You are constantly evolving and improving.",
+      "You are a magnet for success and prosperity.",
+      "You are in control of your own destiny.",
+      "You inspire others with your actions.",
+      "You are a beacon of positivity and light.",
+      "You deserve all the good things life has to offer.",
+      "You are a masterpiece in progress.",
+      "You are the architect of your future.",
+      "You are blessed with limitless potential.",
+      "You are destined for greatness.",
+      "You have the courage to pursue your passions.",
+      "You are surrounded by abundance.",
+      "You trust in the process of life.",
+      "You radiate love and compassion.",
+      "You are capable of overcoming any challenge.",
+      "You are open to receiving all the blessings of the universe.",
+      "You are a force for good in the world.",
+      "You are worthy of love and respect.",
+      "You are aligned with the energy of abundance.",
+      "You are worthy of all the success you desire.",
+      "You are a magnet for miracles.",
+      "You are resilient in the face of adversity.",
+      "You are the author of your own story.",
+      "You are worthy of all the good things life has to offer.",
+      "You are filled with endless potential.",
+      "You are surrounded by love and support.",
+      "You are capable of achieving anything you set your mind to.",
+      "You are deserving of all the joy and happiness in the world.",
+      "You are a powerful creator of your reality.",
+      "You are worthy of all the success and happiness you desire.",
+      "You are always in the right place at the right time.",
+      "You are loved and cherished by the universe.",
+      "You are a source of inspiration for others.",
+      "You are worthy of all the abundance the universe has to offer."
+    ];
+
+    const affirmationDisplay = document.getElementById('affirmation');
+    const showButton = document.getElementById('showAffirmation');
+
+    function showAffirmation() {
+      const randomIndex = Math.floor(Math.random() * affirmations.length);
+      affirmationDisplay.textContent = affirmations[randomIndex];
+    }
+
+    showButton.addEventListener('click', showAffirmation);
+  </script>
+</body>
+</html>

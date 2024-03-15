@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poems</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5; /* Set a light background color */
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .poem-box {
+      width: 45%;
+      margin: 10px;
+      overflow: hidden;
+      position: relative;
+      background-color: #fff; /* Set a white background */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+      transition: transform 0.3s ease; /* Add smooth hover effect */
+    }
+
+    .poem-box:hover {
+      transform: translateY(-5px); /* Move up slightly on hover */
+    }
+
+    .poem-preview {
+      background-color: #f0f0f0;
+      padding: 20px;
+      cursor: pointer;
+      border-radius: 10px 10px 0 0; /* Rounded top corners */
+    }
+
+    .poem-full {
+      padding: 20px;
+      border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+    }
+
+    .favorite-text {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-weight: bold;
+      color: #292829; /* Set a gray color for favorites */
+    }
+
+    /* Modal styles */
+    .modal-background {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      max-width: 80%;
+      overflow-y: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Add a shadow */
+    }
+
+    /* Close button */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #aaa;
+    }
+
+    /* Close button hover effect */
+    .close-btn:hover {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Poem 1 -->
+    <div class="poem-box" onclick="toggleModal('poem1')">
+      <div class="poem-preview">
+        <p>Till there are stars in the sky,<br>
+          Till the sun shines bright,<br>
+          Till there’s you and I...</p>
+      </div>
+      <div class="poem-full" id="poem1" style="display: none;">
+        <span class="close-btn" onclick="toggleModal('poem1')">&times;</span>
+        <p>Till there are stars in the sky,<br>
+          Till the sun shines bright,<br>
+          Till there’s you and I,<br>
+          Baby, I’ll be a romantic<br>
+          And keep making poems that are nuisance-ic,<br>
+          Just like the one I made this time.</p>
+      </div>
+    </div>
+
+    <!-- Poem 2 -->
+    <div class="poem-box" onclick="toggleModal('poem2')">
+      <div class="poem-preview">
+        <p>Hold my hand, <br>
+          let's walk in the park. <br>
+          Show me love...</p>
+      </div>
+      <div class="poem-full" id="poem2" style="display: none;">
+        <span class="close-btn" onclick="toggleModal('poem2')">&times;</span>
+        <p>Hold my hand, <br>
+          let's walk in the park. <br>
+          Show me love, <br>
+          Till it gets dark. <br>
+          Then we'll sit and look at the stars, <br>
+          That are jealous of how beautiful you are.</p>
+      </div>
+    </div>
+
+    <!-- Poem 3 -->
+    <div class="poem-box" onclick="toggleModal('poem3')">
+      <div class="poem-preview">
+        <p>Gone are the times, when<br>
+          I could sleep just right. <br>
+          Now all night I look out of the window, at the night sky<br>
+          Thinking about you and wondering...</p>
+      </div>
+      <div class="poem-full" id="poem3" style="display: none;">
+        <span class="close-btn" onclick="toggleModal('poem3')">&times;</span>
+        <p>Gone are the times, when<br>
+          I could sleep just right. <br>
+          Now all night I look out of the window, at the night sky. <br>
+          Thinking about you and wondering <br>
+          if you are fine. <br>
+          Coz you are all I have. <br>
+          I just want you to be alright. <br>
+          Love you more than anything. <br>
+          Yep, you read that right. <br>
+          So after I'm gone, I just want you<br>
+          to smile. <br>
+          Don't you ever cry, <br>
+          if you do miss me then look up at the sky<br>
+          and just say "goodbye".</p>
+      </div>
+    </div>
+
+    <!-- Poem 4 -->
+    <div class="poem-box" onclick="toggleModal('poem4')">
+      <div class="poem-preview">
+        <p>1st of April 2k19,<br>
+          when I saw you for the first time. <br>
+          Never thought that one day I'd<br>
+          be calling you 'mine'...</p>
+      </div>
+      <div class="poem-full" id="poem4" style="display: none;">
+        <span class="close-btn" onclick="toggleModal('poem4')">&times;</span>
+        <p>1st of April 2k19,<br>
+          when I saw you for the first time. <br>
+          Never thought that one day I'd<br>
+          be calling you 'mine'. <br>
+          I am so glad the way things turned out, <br>
+          and our destinies finally combined. <br>
+          Really grateful to have you in my life <br>
+          because a soulmate is impossible to find. <br>
+          You don't just have my heart but my <br>
+          whole body, soul, and mind. <br>
+          We'll go through all the good and <br>
+          bad days with your hand in mine. <br>
+          For I have loved you every day and I shall do it till <br>
+          the end of time.</p>
+      </div>
+    </div>
+
+    <!-- Poem 5 -->
+    <div class="poem-box" onclick="toggleModal('poem5')">
+      <div class="poem-preview">
+        <p>Residing in my heart, yet miles apart. <br>
+          Now that I'm missing you, I look out <br>
+          at the night stars.<br>
+          They are so bright and<br>
+          beautiful and distant...</p>
+      </div>
+      <div class="poem-full" id="poem5" style="display: none;">
+        <span class="close-btn" onclick="toggleModal('poem5')">&times;</span>
+        <p>Residing in my heart, yet miles apart. <br>
+          Now that I'm missing you, I look out <br>
+          at the night stars. <br>
+          They are so bright and beautiful and distant <br>
+          from me, just the way you are. <br>
+          But we walk on the same land and sleep <br>
+          under the same sky. <br>
+          Maybe the air I am breathing right now <br>
+          would pass through your alveoli. <br>
+          And that'd be our kiss until we see each other <br>
+          next time.</p>
+      </div>
+    </div>
+
+    <!-- Poem 6 -->
+    <div class="poem-box" onclick="toggleModal('poem6')">
+      <div class="poem-preview">
+        <p>Far from the cities, <br>
+          Amongst the rolling hills. <br>
+          At the bottom of the vale,<br>
+          Engulfed by pine trees,<br>
+          would rest a calm lake...</p>
+          <span class="favorite-text">#favourite</span>
+      </div>
+      <div class="poem-full" id="poem6" style="display: none;">
+        <span class="close-btn" onclick="toggleModal('poem6')">&times;</span>
+        <p>Far from the cities, <br>
+          Amongst the rolling hills. <br>
+          At the bottom of the vale, <br>
+          Engulfed by pine trees, would rest a calm lake. <br>
+          On its edge would be a magnificent cottage, <br>
+          Which would be our abode. <br>
+          We’ll have a dog that’ll keep guard at night, <br>
+          And a white-furred cat to scare away the mice. <br>
+          The mornings would be late, <br>
+          And the afternoons would be slothful. <br>
+          And the evenings would be wasted, <br>
+          Getting high off your beautiful, sparkling eyes. <br>
+          When the sun goes home and the moonlight illumes the night, <br>
+          We’ll go skinny dipping under the risqué gaze of the stars high up in the sky, <br>
+          Holding your hand in my left and in my right hand a bottle of wine. <br>
+          You’ll be wearing the moonlight and I’ll be wearing a smile. <br>
+          All my intoxication would be lost on the gateway to your soul. <br>
+          Hands do the exploring and ours legs entwined, <br>
+          Feeling each other until the end of time. <br>
+          I carry you to the bed and the clouds shed tears in grief, <br>
+          Because of your beauty, they’ll no longer be able to see. <br>
+          Wrapping a fluffy blanket I cuddle you to keep away the cold, <br>
+          And make love to you until our souls amalgamate. <br>
+          Wake up the next day, the sun shining bright. <br>
+          And I look at you with the same thoughts in my mind, <br>
+          “I can’t believe such a beautiful girl is all mine.”</p>
+      </div>
+    </div>
+
+    <!-- Poem 7 -->
+    <div class="poem-box" onclick="toggleModal('poem7')">
+      <div class="poem-preview">
+        <p>Is it fine <br>
+          If I hold your hand <br>
+          And never let go of it...</p>
+      </div>
+      <div class="poem-full" id="poem7" style="display: none;">
+        <span class="close-btn" onclick="toggleModal('poem7')">&times;</span>
+        <p>Is it fine <br>
+          If I hold your hand <br>
+          And never let go of it <br>
+          Ever again. <br>
+          Is it fine <br>
+          If I call you mine <br>
+          Coz baby i'm all yours <br>
+          And I believe we're destined. <br>
+          Is it fine <br>
+          If every morning I borrow a kiss <br>
+          And promise to return it <br>
+          Before 'goodnight'. <br>
+          Is it fine <br>
+          If we have kids <br>
+          A prince, a princess, the king and the queen <br>
+          And just like that the royal family is complete. <br>
+          Is it fine <br>
+          If we can be together <br>
+          Even when these bodies are no longer alive <br>
+          Coz sweetheart we're soulmates, and soulmates never die.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Background -->
+  <div id="modalBackground" class="modal-background" onclick="toggleModal()">
+    <!-- Modal Content -->
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <script>
+    function toggleModal(poemId) {
+      var modalBackground = document.getElementById("modalBackground");
+      var poemFull = document.getElementById(poemId);
+      var body = document.body;
+
+      if (modalBackground.style.display === "none" || modalBackground.style.display === "") {
+        modalBackground.style.display = "flex";
+        document.getElementById("modalContent").innerHTML = poemFull.innerHTML;
+        body.style.overflow = "hidden";
+      } else {
+        modalBackground.style.display = "none";
+        body.style.overflow = "auto";
+      }
+    }
+  </script>
+</body>
+</html>
